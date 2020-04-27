@@ -26,7 +26,7 @@ from deepforest.retinanet_train import parse_args
 from keras_retinanet import models
 from keras_retinanet.models import convert_model
 from keras_retinanet.bin.train import create_models
-from keras_retinanet.preprocessing.csv_generator import CSVGenerator, _read_classes
+from keras_retinanet.preprocessing.four_channel import FourChannelGenerator, _read_classes
 from keras_retinanet.utils.eval import evaluate
 from keras_retinanet.utils.eval import _get_detections
 from keras_retinanet.utils.visualization import draw_box
@@ -196,13 +196,13 @@ class deepforest:
         args = parse_args(arg_list)
 
         #create generator
-        generator = CSVGenerator(
+        generator = FourChannelGenerator(
             args.annotations,
             args.classes,
             image_min_side=args.image_min_side,
             image_max_side=args.image_max_side,
             config=args.config,
-            shuffle_groups=False,
+            shuffle_groups=False
         )
 
         if self.prediction_model:

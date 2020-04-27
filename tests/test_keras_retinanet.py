@@ -35,7 +35,7 @@ def test_four_channel(annotations, classes_file):
     inputs, targets = generator.__getitem__(0)
     assert inputs.shape == (1,800,800,4)
     
-    #View
+    #View   
     #fig = pyplot.figure(figsize=(30,30))
     #fig,axes = pyplot.subplots(1,2)
     #axes = axes.flatten()    
